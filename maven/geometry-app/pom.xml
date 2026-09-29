@@ -13,6 +13,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <geometry.version>1.1.0</geometry.version>
+        <geometry-utils.version>1.0.0-SNAPSHOT</geometry-utils.version>
     </properties>
 
     <dependencies>
@@ -20,6 +21,11 @@
             <groupId>com.uregina.geometry</groupId>
             <artifactId>geometry-core</artifactId>
             <version>${geometry.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.uregina.geometry</groupId>
+            <artifactId>geometry-utils</artifactId>
+            <version>${geometry-utils.version}</version>
         </dependency>
     </dependencies>
 

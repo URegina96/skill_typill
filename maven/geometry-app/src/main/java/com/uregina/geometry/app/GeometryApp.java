@@ -5,6 +5,9 @@ import com.uregina.geometry.shapes.Rectangle;
 import com.uregina.geometry.shapes.Shape;
 import com.uregina.geometry.shapes.Square;
 import com.uregina.geometry.shapes.Triangle;
+import com.uregina.geometry.utils.LengthUnit;
+import com.uregina.geometry.utils.ShapeUtils;
+import com.uregina.geometry.utils.UnitConverter;
 
 import java.util.List;
 
@@ -21,5 +24,9 @@ public class GeometryApp {
         for (Shape shape : shapes) {
             System.out.println(shape.describe());
         }
+
+        double total = ShapeUtils.totalArea(shapes);
+        System.out.printf(java.util.Locale.ROOT, "total area: %.2f m2 = %.0f cm2%n", total, UnitConverter.convertArea(total, LengthUnit.METER, LengthUnit.CENTIMETER));
+        ShapeUtils.largest(shapes).ifPresent(shape -> System.out.println("largest: " + shape.name()));
     }
 }

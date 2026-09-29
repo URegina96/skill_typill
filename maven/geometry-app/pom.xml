@@ -36,6 +36,10 @@
             <groupId>com.uregina.geometry</groupId>
             <artifactId>geometry-utils</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.uregina.geometry</groupId>
+            <artifactId>three-dimensional-shapes</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

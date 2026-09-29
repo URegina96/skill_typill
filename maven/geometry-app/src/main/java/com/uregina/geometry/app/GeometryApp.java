@@ -5,6 +5,9 @@ import com.uregina.geometry.shapes.Rectangle;
 import com.uregina.geometry.shapes.Shape;
 import com.uregina.geometry.shapes.Square;
 import com.uregina.geometry.shapes.Triangle;
+import com.uregina.geometry.solids.Cube;
+import com.uregina.geometry.solids.Solid;
+import com.uregina.geometry.solids.Sphere;
 import com.uregina.geometry.utils.LengthUnit;
 import com.uregina.geometry.utils.ShapeUtils;
 import com.uregina.geometry.utils.UnitConverter;
@@ -29,5 +32,8 @@ public class GeometryApp {
         System.out.printf(java.util.Locale.ROOT, "total area: %.2f m2 = %.0f cm2%n", total, UnitConverter.convertArea(total, LengthUnit.METER, LengthUnit.CENTIMETER));
         ShapeUtils.largest(shapes).ifPresent(shape -> System.out.println("largest: " + shape.name()));
         System.out.println("by area: " + ShapeUtils.sortedByArea(shapes).stream().map(Shape::name).toList());
+
+        List<Solid> solids = List.of(new Cube(2), new Sphere(1.5));
+        solids.forEach(solid -> System.out.println(solid.describe()));
     }
 }

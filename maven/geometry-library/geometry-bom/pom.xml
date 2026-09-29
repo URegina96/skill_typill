@@ -13,6 +13,7 @@
     <properties>
         <geometry-core.version>1.1.0</geometry-core.version>
         <geometry-utils.version>1.1.0-SNAPSHOT</geometry-utils.version>
+        <three-dimensional-shapes.version>1.0.0-SNAPSHOT</three-dimensional-shapes.version>
     </properties>
 
     <dependencyManagement>
@@ -26,6 +27,11 @@
                 <groupId>com.uregina.geometry</groupId>
                 <artifactId>geometry-utils</artifactId>
                 <version>${geometry-utils.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.uregina.geometry</groupId>
+                <artifactId>three-dimensional-shapes</artifactId>
+                <version>${three-dimensional-shapes.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

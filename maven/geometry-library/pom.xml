@@ -14,6 +14,7 @@
         <module>geometry-bom</module>
         <module>geometry-core</module>
         <module>geometry-utils</module>
+        <module>three-dimensional-shapes</module>
     </modules>
 
     <properties>

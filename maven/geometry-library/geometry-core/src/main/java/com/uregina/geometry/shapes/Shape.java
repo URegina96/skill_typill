@@ -9,4 +9,8 @@ public interface Shape {
     default String name() {
         return getClass().getSimpleName();
     }
+
+    default String describe() {
+        return String.format(java.util.Locale.ROOT, "%-10s area = %8.2f, perimeter = %8.2f", name(), area(), perimeter());
+    }
 }

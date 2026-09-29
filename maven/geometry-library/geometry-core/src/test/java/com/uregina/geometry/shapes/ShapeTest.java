@@ -31,6 +31,13 @@ class ShapeTest {
     }
 
     @Test
+    void square() {
+        Square square = new Square(5);
+        assertEquals(25, square.area(), EPS);
+        assertEquals(20, square.perimeter(), EPS);
+    }
+
+    @Test
     void invalidTriangle() {
         assertThrows(IllegalArgumentException.class, () -> new Triangle(1, 2, 10));
     }

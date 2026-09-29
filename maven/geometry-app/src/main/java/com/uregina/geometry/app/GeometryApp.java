@@ -28,5 +28,6 @@ public class GeometryApp {
         double total = ShapeUtils.totalArea(shapes);
         System.out.printf(java.util.Locale.ROOT, "total area: %.2f m2 = %.0f cm2%n", total, UnitConverter.convertArea(total, LengthUnit.METER, LengthUnit.CENTIMETER));
         ShapeUtils.largest(shapes).ifPresent(shape -> System.out.println("largest: " + shape.name()));
+        System.out.println("by area: " + ShapeUtils.sortedByArea(shapes).stream().map(Shape::name).toList());
     }
 }

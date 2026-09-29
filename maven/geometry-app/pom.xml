@@ -12,25 +12,52 @@
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <geometry.version>1.1.0</geometry.version>
-        <geometry-utils.version>1.0.0-SNAPSHOT</geometry-utils.version>
+        <geometry-bom.version>1.1.0</geometry-bom.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.uregina.geometry</groupId>
+                <artifactId>geometry-bom</artifactId>
+                <version>${geometry-bom.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
             <groupId>com.uregina.geometry</groupId>
             <artifactId>geometry-core</artifactId>
-            <version>${geometry.version}</version>
         </dependency>
         <dependency>
             <groupId>com.uregina.geometry</groupId>
             <artifactId>geometry-utils</artifactId>
-            <version>${geometry-utils.version}</version>
         </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-enforcer-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <id>dependency-convergence</id>
+                        <goals>
+                            <goal>enforce</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                                <dependencyConvergence/>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>

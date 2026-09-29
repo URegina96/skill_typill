@@ -28,6 +28,14 @@ class UtilsTest {
     }
 
     @Test
+    void sortsByAreaDescending() {
+        Shape a = new Rectangle(1, 1);
+        Shape b = new Rectangle(2, 2);
+        assertEquals(List.of(b, a), ShapeUtils.sortedByArea(List.of(a, b)));
+        assertEquals(4, ShapeUtils.areaRatio(b, a), 1e-9);
+    }
+
+    @Test
     void comparesArea() {
         assertTrue(ShapeUtils.sameArea(new Rectangle(2, 8), new Rectangle(4, 4)));
     }

@@ -11,6 +11,7 @@
     <name>GeometryLibrary</name>
 
     <modules>
+        <module>geometry-bom</module>
         <module>geometry-core</module>
         <module>geometry-utils</module>
     </modules>

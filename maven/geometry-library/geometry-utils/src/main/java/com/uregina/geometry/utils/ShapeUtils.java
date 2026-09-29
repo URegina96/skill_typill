@@ -4,6 +4,7 @@ import com.uregina.geometry.shapes.Shape;
 
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Optional;
 
 public final class ShapeUtils {
@@ -22,6 +23,14 @@ public final class ShapeUtils {
 
     public static double totalArea(Collection<? extends Shape> shapes) {
         return shapes.stream().mapToDouble(Shape::area).sum();
+    }
+
+    public static List<Shape> sortedByArea(Collection<? extends Shape> shapes) {
+        return shapes.stream().map(Shape.class::cast).sorted(BY_AREA.reversed()).toList();
+    }
+
+    public static double areaRatio(Shape first, Shape second) {
+        return first.area() / second.area();
     }
 
     public static boolean sameArea(Shape first, Shape second) {

@@ -6,6 +6,9 @@ import com.uregina.geometry.shapes.Shape;
 import com.uregina.geometry.shapes.Square;
 import com.uregina.geometry.shapes.Triangle;
 import com.uregina.geometry.solids.Cube;
+import com.uregina.geometry.solids.Cylinder;
+import com.uregina.geometry.solids.Prism;
+import com.uregina.geometry.solids.VolumeConverter;
 import com.uregina.geometry.solids.Solid;
 import com.uregina.geometry.solids.Sphere;
 import com.uregina.geometry.utils.LengthUnit;
@@ -33,7 +36,10 @@ public class GeometryApp {
         ShapeUtils.largest(shapes).ifPresent(shape -> System.out.println("largest: " + shape.name()));
         System.out.println("by area: " + ShapeUtils.sortedByArea(shapes).stream().map(Shape::name).toList());
 
-        List<Solid> solids = List.of(new Cube(2), new Sphere(1.5));
+        List<Solid> solids = List.of(new Cube(2), new Sphere(1.5), new Cylinder(1, 3), new Prism(new Triangle(3, 4, 5), 2));
         solids.forEach(solid -> System.out.println(solid.describe()));
+
+        double cubeLiters = VolumeConverter.convert(new Cube(0.5).volume(), LengthUnit.METER, LengthUnit.CENTIMETER) / 1000;
+        System.out.printf(java.util.Locale.ROOT, "cube 0.5 m = %.0f l%n", cubeLiters);
     }
 }
